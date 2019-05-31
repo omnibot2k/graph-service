@@ -1,20 +1,5 @@
 type Query {
-    bookById(id: ID): Book
     thing1ByQuery(query: String): [thing1]
-    resultsBySearch(query: String): Response
-}
-
-type Book {
-    id: ID
-    name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
 }
 
 type Response {
