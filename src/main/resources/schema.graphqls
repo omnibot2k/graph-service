@@ -1,0 +1,64 @@
+type Query {
+    bookById(id: ID): Book
+    thing1ByQuery(query: String): [thing1]
+    resultsBySearch(query: String): Response
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Response {
+    data: Data
+}
+
+type Data {
+    results: [thing1]
+}
+
+type thing1 {
+    id: ID
+    name: String
+    title: String
+    prop1: [Prop]
+    prop2: [Prop]
+    prop3: [Prop]
+    prop4: [Prop]
+    prop5: [Prop]
+    prop6: [Prop]
+    prop7: [Prop]
+    prop8: [Prop]
+    attrib1: [attrib]
+    attrib2: [attrib]
+    attrib3: [attrib]
+    attrib4: [attrib]
+    attrib5: [attrib]
+    attrib6: [attrib]
+    attrib7: [attrib]
+    links: [Link]
+
+}
+
+type Prop {
+    id: ID
+    name: String
+    title: String
+}
+type attrib {
+    id: ID
+    name: String
+    title: String
+}
+type Link {
+    id: ID
+    thingId: ID
+}

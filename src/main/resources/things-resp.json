@@ -1,0 +1,59 @@
+{
+  "data": {
+    "results": [
+      {
+        "id": "thing1-1AAAAAAAAAAAAAAAAAA",
+        "name": "Harry Potter and the Philosopher's Stone",
+        "title": "author-1",
+        "prop1": [
+          {
+            "id": "prop-id",
+            "name": "prop-1",
+            "title": "Prop 1"
+          }
+        ],
+        "prop2": null,
+        "attrib1": [
+          {
+            "id": "attrib-id",
+            "name": "attrib-1",
+            "title": "attrib 1"
+          },
+          {
+            "id": "attrib-id",
+            "name": "attrib-1",
+            "title": "attrib 1"
+          }
+        ],
+        "links": [
+          {
+            "id": "link-id1",
+            "thingId": "link-thingid1"
+          },
+          {
+            "id": "link-id2",
+            "thingId": "link-thingid2"
+          }
+        ]
+      },
+      {
+        "id": "thing1-2",
+        "name": "Moby Dick",
+        "title": "author-2",
+        "prop1": null,
+        "prop2": null,
+        "attrib1": null
+      },
+      {
+        "id": "thing1s-3",
+        "name": "Interview with the vampire",
+        "title": "author-3",
+        "prop1": null,
+        "prop2": null,
+        "attrib1": null
+      }
+    ]
+  },
+  "totalResults": 15,
+  "_self": "/entities?search"
+}
