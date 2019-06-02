@@ -1,5 +1,5 @@
 type Query {
-    thing1ByQuery(query: String): [thing1]
+    thingQuery(query: String): Response
 }
 
 type Response {
@@ -45,5 +45,5 @@ type attrib {
 }
 type Link {
     id: ID
-    thingId: ID
+    thingId: String
 }
