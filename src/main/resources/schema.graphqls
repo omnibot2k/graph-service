@@ -1,9 +1,13 @@
+directive @fetch(from: String!) on FIELD_DEFINITION
+
 type Query {
     thingQuery(query: String): Response
+    simple(query: String): thing1
 }
 
 type Response {
     data: Data
+    test: String
 }
 
 type Data {

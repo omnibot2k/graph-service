@@ -27,8 +27,32 @@ public class GraphQLDataFetchers {
         return "bad";
     }
 
+    private String readSimpleAsString() {
+        try {
+            return new String(Files.readAllBytes(Paths.get("./src/main/resources/simple.json")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "bad";
+    }
+
     private Object loagThings() {
         String json = readThingsAsString();
+
+        try {
+            Map<String, Object> jsonMap = mapper.readValue(json,
+                    new TypeReference<Map<String, Object>>() {
+                    });
+            return jsonMap;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "bad";
+    }
+
+    private Object loagSimple() {
+        String json = readSimpleAsString();
 
         try {
             Map<String, Object> jsonMap = mapper.readValue(json,
@@ -45,6 +69,19 @@ public class GraphQLDataFetchers {
         return dataFetchingEnvironment -> {
             String query = dataFetchingEnvironment.getArgument("query");
             return loagThings();
+        };
+    }
+    public DataFetcher getSimpleQueryDataFetcher() {
+        return dataFetchingEnvironment -> {
+            String query = dataFetchingEnvironment.getArgument("query");
+            return loagSimple();
+        };
+    }
+
+    public DataFetcher getResponseTestFetcher() {
+        return dataFetchingEnvironment -> {
+            String query = dataFetchingEnvironment.getArgument("query");
+            return "WOW IT WORKED";
         };
     }
 }
