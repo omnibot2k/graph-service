@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Component
 public class GraphQLDataFetchers {
@@ -38,6 +39,11 @@ public class GraphQLDataFetchers {
     }
 
     private Object loagThings() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String json = readThingsAsString();
 
         try {
@@ -66,10 +72,16 @@ public class GraphQLDataFetchers {
     }
 
     public DataFetcher getResultsByQueryDataFetcher() {
+        //sync
+        /*
         return dataFetchingEnvironment -> {
             String query = dataFetchingEnvironment.getArgument("query");
             return loagThings();
-        };
+        };*/
+
+        //async much faster!!!
+        return environment -> CompletableFuture.supplyAsync(
+                () -> loagThings());
     }
     public DataFetcher getSimpleQueryDataFetcher() {
         return dataFetchingEnvironment -> {
